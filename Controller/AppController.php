@@ -34,4 +34,8 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	public $helpers = array('Js' => array('Jquery'));
 	public $components = array('DataCenter.Flash');
+	
+	public function beforeRender() {
+		$this->set('support_email', 'gtwatson@bsu.edu');
+	}
 }
