@@ -40,34 +40,34 @@
 	<?php echo $this->element('footnotes'); ?>
 </div>
 <?php $this->Js->buffer("
-	Event.observe('calc_input_income', 'change', function(event) {
+	$('#calc_input_income').change(function (event) {
 		forceMoneyFormat('calc_input_income');
 	});
-	Event.observe('calc_input_home_value_before', 'change', function(event) {
+	$('#calc_input_home_value_before').change(function (event) {
 		forceMoneyFormat('calc_input_home_value_before');
 	});
-	Event.observe('calc_input_home_value_after', 'change', function(event) {
+	$('#calc_input_home_value_after').change(function (event) {
 		forceMoneyFormat('calc_input_home_value_after');
 	});
-	$('recalculate_form').observe('submit', function (event) {
+	$('#recalculate_form').submit(function (event) {
 		recalculate(event);
 	});
-	$('toggle_edit').observe('click', function (event) {
+	$('#toggle_edit').click(function (event) {
 		toggle_edit(event);
 	});
-	$('toggle_sales_taxes').observe('click', function (event) {
+	$('#toggle_sales_taxes').click(function (event) {
 		toggle_sales_taxes(event);
 	});
-	$('toggle_formulas').observe('click', function (event) {
+	$('#toggle_formulas').click(function (event) {
 		toggle_formulas(event);
 	});
-	$('toggle_sources').observe('click', function (event) {
+	$('#toggle_sources').click(function (event) {
 		toggle_sources(event);
 	});
-	$('toggle_footnotes').observe('click', function (event) {
+	$('#toggle_footnotes').click(function (event) {
 		toggle_footnotes(event);
 	});
-	$('show_download_options').observe('click', function (event) {
+	$('#show_download_options').click(function (event) {
 		toggle_download_options(event);
 	});
 "); ?>
