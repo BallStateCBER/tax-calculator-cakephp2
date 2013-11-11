@@ -1,42 +1,54 @@
 Number.prototype.formatMoney = function(c, d, t) {
-	var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? ',' : d, t = t == undefined ? '.' : t, s = n < 0 ? '-' : '', i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + '', j = (j = i.length) > 3 ? j % 3 : 0;
-	return s + (j ? i.substr(0, j) + t : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : '');
+	var n = this, 
+		c = isNaN(c = Math.abs(c)) ? 2 : c, 
+		d = d == undefined ? "." : d, 
+		t = t == undefined ? "," : t, 
+		s = n < 0 ? "-" : "", 
+		i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+		j = (j = i.length) > 3 ? j % 3 : 0;
+	return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 };
+
 function forceMoneyFormat(id) {
-	var field = $(id);
-	var value = field.value;
+	var field = $('#'+id);
+	var value = field.val();
 
 	// Remove everything after decimal point and strip non-numeric
 	value = value.split(".")[0];
 	value = value.replace(/[^0-9]/g, '');
 
 	// Replace value in field
-	field.value = '$'+parseInt(value).formatMoney(0, '.', ',');
+	field.val('$'+parseInt(value).formatMoney(0));
 }
 
 function calculate(event) {
-	event.stop();
+	event.preventDefault();
 	if (
-		$('calc_input_home_value_before').value == '' ||
-		$('calc_input_home_value_after').value == '' ||
-		$('calc_input_income').value == ''
+		$('calc_input_home_value_before').val() == '' ||
+		$('calc_input_home_value_after').val() == '' ||
+		$('calc_input_income').val() == ''
 	) {
 		alert('Please fill out all fields before continuing.');
 		return false;
 	}
-	var jsRequest = new Ajax.Updater('calc_output_container', '/pages/output', {
-		condition:'true',
-		indicator:'calc_loading',
-		method:'post',
-		onComplete:function (transport) {
-			//$('initial_input_form').setStyle({height: 0});
-			$('calc_output_container').setStyle({opacity: 1});
+	$.ajax({
+		url: '/pages/output',
+		type: 'POST',
+		data: $('#initial_input_form').serialize(),
+		beforeSend: function () {
+			$('#calc_loading').show();
+			$('#calc_output_container').css({opacity: 0});
 		},
-		onCreate:function (transport) {
-			$('calc_output_container').setStyle({opacity: 0});
+		success: function (data) {
+			$('#calc_output_container').html(data);
+			$('#calc_output_container').css({opacity: 1});
 		},
-		parameters:$($('initial_input_form')).serialize(),
-		evalScripts: true
+		error: function () {
+			alert('Sorry, there was an error processing your request. Please try again.');
+		},
+		complete: function () {
+			$('#calc_loading').hide();
+		}
 	});
 }
 
@@ -51,100 +63,107 @@ function printContent(content) {
 }
 
 function toggle_download_options(event) {
-	event.stop();
-	var wrapper = $('download_options');
-	if (wrapper.getHeight() == 0) {
-		var content_height = wrapper.down('div').getHeight();
-		wrapper.setStyle({height: content_height+'px'});
+	event.preventDefault();
+	var wrapper = $('#download_options');
+	if (wrapper.height() == 0) {
+		var content_height = wrapper.children('div').first().height();
+		wrapper.css({height: content_height+'px'});
 	} else {
-		wrapper.setStyle({height: 0});
+		wrapper.css({height: 0});
 	}
 }
 
 function toggle_formulas(event) {
-	event.stop();
-	var wrapper = $('formulas_used');
-	if (wrapper.getHeight() == 0) {
-		var content_height = wrapper.down('div').getHeight();
-		wrapper.setStyle({height: content_height+'px'});
+	event.preventDefault();
+	var wrapper = $('#formulas_used');
+	if (wrapper.height() == 0) {
+		var content_height = wrapper.children('div').first().height();
+		wrapper.css({height: content_height+'px'});
 	} else {
-		wrapper.setStyle({height: 0});
+		wrapper.css({height: 0});
 	}
 }
 
 function toggle_sources(event) {
-	event.stop();
-	var wrapper = $('sources');
-	if (wrapper.getHeight() == 0) {
-		var content_height = wrapper.down('div').getHeight();
-		wrapper.setStyle({height: content_height+'px'});
+	event.preventDefault();
+	var wrapper = $('#sources');
+	if (wrapper.height() == 0) {
+		var content_height = wrapper.children('div').first().height();
+		wrapper.css({height: content_height+'px'});
 	} else {
-		wrapper.setStyle({height: 0});
+		wrapper.css({height: 0});
 	}
 }
 
 function toggle_footnotes(event) {
-	event.stop();
-	var wrapper = $('footnotes');
-	if (wrapper.getHeight() == 0) {
-		var content_height = wrapper.down('div').getHeight();
-		wrapper.setStyle({height: content_height+'px'});
+	event.preventDefault();
+	var wrapper = $('#footnotes');
+	if (wrapper.height() == 0) {
+		var content_height = wrapper.children('div').first().height();
+		wrapper.css({height: content_height+'px'});
 	} else {
-		wrapper.setStyle({height: 0});
+		wrapper.css({height: 0});
 	}
 }
 
 function toggle_sales_taxes(event) {
-	event.stop();
-	var wrapper = $('sales_tax_breakdown_wrapper');
-	if (wrapper.getHeight() == 0) {
-		var content_height = $('sales_tax_breakdown').getHeight();
-		wrapper.setStyle({height: content_height+'px'});
+	event.preventDefault();
+	var wrapper = $('#sales_tax_breakdown_wrapper');
+	if (wrapper.height() == 0) {
+		var content_height = $('#sales_tax_breakdown').height();
+		wrapper.css({height: content_height+'px'});
 	} else {
-		wrapper.setStyle({height: 0});
+		wrapper.css({height: 0});
 	}
 }
 
 function toggle_edit(event) {
-	event.stop();
-	var cells = $$('#output_wrapper .display_mode');
+	event.preventDefault();
+	var cells = $('#output_wrapper .display_mode');
 
 	// Switching from display to input mode
 	if (cells.length > 0) {
-		cells.each(function(cell) {
-			cell.removeClassName('display_mode');
-			cell.addClassName('input_mode');
+		cells.each(function() {
+			$(this).removeClass('display_mode');
+			$(this).addClass('input_mode');
 		});
 
 	// Switching from input to display mode
 	} else {
-		$$('#output_wrapper .input_mode').each(function(cell) {
-			cell.removeClassName('input_mode');
-			cell.addClassName('display_mode');
+		$('#output_wrapper .input_mode').each(function() {
+			$(this).removeClass('input_mode');
+			$(this).addClass('display_mode');
 		});
 	}
 }
 
 function recalculate(event) {
-	event.stop();
-	if ($('calc_input_home_value_before').value == '' || $('calc_input_home_value_after').value == '' || $('calc_input_income').value == '') {
+	event.preventDefault();
+	if (
+		$('#calc_input_home_value_before').val() == '' ||  
+		$('#calc_input_home_value_after').val() == '' ||
+		$('#calc_input_income').val() == ''
+	) {
 		alert('Please fill out all fields before continuing.');
 		return false;
 	}
-	var jsRequest = new Ajax.Updater('calc_output_container', '/pages/output', {
-		condition:true,
-		indicator:'recalc_loading',
-		method:'post',
-		onComplete: function (transport) {
-			$('calc_output_container').setStyle({opacity: 1});
+	$.ajax({
+		url: '/pages/output',
+		type: 'POST',
+		data: $('#recalculate_button').closest('form').serialize(),
+		beforeSend: function () {
+			$('#recalc_loading').show();
+			$('#calc_output_container').css({opacity: 0});
 		},
-		onCreate: function (transport) {
-			$('calc_output_container').setStyle({opacity: 0});
+		success: function (data) {
+			$('#calc_output_container').html(data);
+			$('#calc_output_container').css({opacity: 1});
 		},
-		onFailure: function (transport) {
-			$('calc_output_container').update('Sorry, there was an error completing your request. Please refresh the page to try again. <a href="mailto:gtwatson@bsu.edu">Email the web developer</a> if you continue to have trouble.');
+		error: function () {
+			$('#calc_output_container').html('Sorry, there was an error completing your request. Please refresh the page to try again. <a href="mailto:gtwatson@bsu.edu">Email the web developer</a> if you continue to have trouble.');
 		},
-		parameters:$($('recalculate_button').form).serialize(),
-		evalScripts: true
+		complete: function () {
+			$('#recalc_loading').hide();
+		}
 	});
 }

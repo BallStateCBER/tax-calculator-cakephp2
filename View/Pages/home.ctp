@@ -57,20 +57,21 @@
 </div>
 
 <?php $this->Js->buffer("
-	Event.observe('calc_input_income', 'change', function(event) {
+	$('#calc_input_income').change(function(event) {
 		forceMoneyFormat('calc_input_income');
 	});
-	Event.observe('calc_input_home_value_before', 'change', function(event) {
+	$('#calc_input_home_value_before').change(function(event) {
 		forceMoneyFormat('calc_input_home_value_before');
-		var after_field = $('calc_input_home_value_after');
-		if (after_field.value == '') {
-			after_field.value = $('calc_input_home_value_before').value;
+		var after_field = $('#calc_input_home_value_after');
+		if (after_field.val() == '') {
+			after_field.val($('#calc_input_home_value_before').val());
 		}
 	});
-	Event.observe('calc_input_home_value_after', 'change', function(event) {
+	$('#calc_input_home_value_after').change(function(event) {
 		forceMoneyFormat('calc_input_home_value_after');
 	});
-	$('initial_input_form').observe('submit', function (event) {
+	$('#initial_input_form').submit(function (event) {
+		event.preventDefault();
 		calculate(event);
 	});
 "); ?>
