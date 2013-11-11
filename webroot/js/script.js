@@ -24,9 +24,9 @@ function forceMoneyFormat(id) {
 function calculate(event) {
 	event.preventDefault();
 	if (
-		$('calc_input_home_value_before').val() == '' ||
-		$('calc_input_home_value_after').val() == '' ||
-		$('calc_input_income').val() == ''
+		$('#calc_input_home_value_before').val() == '' ||
+		$('#calc_input_home_value_after').val() == '' ||
+		$('#calc_input_income').val() == ''
 	) {
 		alert('Please fill out all fields before continuing.');
 		return false;
