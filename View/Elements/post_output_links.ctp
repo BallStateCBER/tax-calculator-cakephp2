@@ -10,7 +10,7 @@
 			<button id="recalculate_button" class="fake_link" type="submit">
 				<img src="/img/calculator--arrow.png" alt="Recalculate" /> Recalculate
 				<?php echo $this->Html->image(
-					'/img/loading_small.gif',
+					'/data_center/img/loading_small.gif',
 					array(
 						'alt' => 'Loading',
 						'style' => 'display: none;',

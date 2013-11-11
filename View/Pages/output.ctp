@@ -1,7 +1,7 @@
 <div class="box">
 	<?php echo $this->element('output_table'); ?>
 	<?php echo $this->Html->image(
-		'/img/loading_small.gif',
+		'/data_center/img/loading_small.gif',
 		array(
 			'alt' => 'Loading',
 			'title' => 'Loading',
