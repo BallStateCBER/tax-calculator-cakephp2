@@ -167,3 +167,36 @@ function recalculate(event) {
 		}
 	});
 }
+
+function setupOutput() {
+	$('#calc_input_income').change(function (event) {
+		forceMoneyFormat('calc_input_income');
+	});
+	$('#calc_input_home_value_before').change(function (event) {
+		forceMoneyFormat('calc_input_home_value_before');
+	});
+	$('#calc_input_home_value_after').change(function (event) {
+		forceMoneyFormat('calc_input_home_value_after');
+	});
+	$('#recalculate_form').submit(function (event) {
+		recalculate(event);
+	});
+	$('#toggle_edit').click(function (event) {
+		toggle_edit(event);
+	});
+	$('#toggle_sales_taxes').click(function (event) {
+		toggle_sales_taxes(event);
+	});
+	$('#toggle_formulas').click(function (event) {
+		toggle_formulas(event);
+	});
+	$('#toggle_sources').click(function (event) {
+		toggle_sources(event);
+	});
+	$('#toggle_footnotes').click(function (event) {
+		toggle_footnotes(event);
+	});
+	$('#show_download_options').click(function (event) {
+		toggle_download_options(event);
+	});
+}
