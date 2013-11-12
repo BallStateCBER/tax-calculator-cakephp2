@@ -5,7 +5,7 @@
 		<title>
 			<?php echo Configure::read('data_center_subsite_title'); ?>
 		</title>
-		<link rel="stylesheet" type="text/css" href="/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	</head>
 	<body class="print">
 		<?php echo $content_for_layout ?>
