@@ -23,7 +23,7 @@
 	'Sales Tax' => array(
 		'Indiana & Illinois' => array(
 			"The Consumer Expenditure Survey was used to determine the value of expenditures and also how expenditures were distributed amongst food, housekeeping supplies, personal care items, etc. These expenditures were then used to evaluate sales tax expense.",
-			"Since Illinois has a local option sales tax, the sales tax expense is determined based on a countywide range. This reflects the minimum and maximum total sales tax rate of a county in the state.  For a more precise determination of sales tax rates please visit https://www.revenue.state.il.us/app/trii/."
+			"Since Illinois has a local option sales tax, the sales tax expense is determined based on a countywide range. This reflects the minimum and maximum total sales tax rate of a county in the state.  For a more precise determination of sales tax rates please visit <a href=\"https://www.revenue.state.il.us/app/trii/\">https://www.revenue.state.il.us/app/trii/</a>."
 		)
 	)
 ); ?>
