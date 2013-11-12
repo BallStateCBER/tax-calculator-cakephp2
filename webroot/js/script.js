@@ -62,61 +62,6 @@ function printContent(content) {
 	WindowObject.close();
 }
 
-function toggle_download_options(event) {
-	event.preventDefault();
-	var wrapper = $('#download_options');
-	if (wrapper.height() == 0) {
-		var content_height = wrapper.children('div').first().height();
-		wrapper.css({height: content_height+'px'});
-	} else {
-		wrapper.css({height: 0});
-	}
-}
-
-function toggle_formulas(event) {
-	event.preventDefault();
-	var wrapper = $('#formulas_used');
-	if (wrapper.height() == 0) {
-		var content_height = wrapper.children('div').first().height();
-		wrapper.css({height: content_height+'px'});
-	} else {
-		wrapper.css({height: 0});
-	}
-}
-
-function toggle_sources(event) {
-	event.preventDefault();
-	var wrapper = $('#sources');
-	if (wrapper.height() == 0) {
-		var content_height = wrapper.children('div').first().height();
-		wrapper.css({height: content_height+'px'});
-	} else {
-		wrapper.css({height: 0});
-	}
-}
-
-function toggle_footnotes(event) {
-	event.preventDefault();
-	var wrapper = $('#footnotes');
-	if (wrapper.height() == 0) {
-		var content_height = wrapper.children('div').first().height();
-		wrapper.css({height: content_height+'px'});
-	} else {
-		wrapper.css({height: 0});
-	}
-}
-
-function toggle_sales_taxes(event) {
-	event.preventDefault();
-	var wrapper = $('#sales_tax_breakdown_wrapper');
-	if (wrapper.height() == 0) {
-		var content_height = $('#sales_tax_breakdown').height();
-		wrapper.css({height: content_height+'px'});
-	} else {
-		wrapper.css({height: 0});
-	}
-}
-
 function toggle_edit(event) {
 	event.preventDefault();
 	var cells = $('#output_wrapper .display_mode');
@@ -189,18 +134,27 @@ function setupOutput() {
 		toggle_edit(event);
 	});
 	$('#toggle_sales_taxes').click(function (event) {
-		toggle_sales_taxes(event);
+		event.preventDefault();
+		$('#sales_tax_breakdown_wrapper').slideToggle();
 	});
 	$('#toggle_formulas').click(function (event) {
-		toggle_formulas(event);
+		event.preventDefault();
+		$('#formulas_used').slideToggle();
 	});
 	$('#toggle_sources').click(function (event) {
-		toggle_sources(event);
+		event.preventDefault();
+		$('#sources').slideToggle();
 	});
 	$('#toggle_footnotes').click(function (event) {
-		toggle_footnotes(event);
+		event.preventDefault();
+		$('#footnotes').slideToggle();
+	});
+	$('#toggle_resources').click(function (event) {
+		event.preventDefault();
+		$('#resources').slideToggle();
 	});
 	$('#show_download_options').click(function (event) {
-		toggle_download_options(event);
+		event.preventDefault();
+		$('#download_options').slideToggle();
 	});
 }
