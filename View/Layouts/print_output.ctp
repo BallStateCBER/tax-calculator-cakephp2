@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>
-			Illinois to Indiana Tax Savings Calculator
+			<?php echo Configure::read('data_center_subsite_title'); ?>
 		</title>
 		<link rel="stylesheet" type="text/css" href="/css/main.css" />
 		<link rel="icon" type="image/png" href="/img/chart.png" />
