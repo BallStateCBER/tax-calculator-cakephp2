@@ -55,7 +55,7 @@
 	<div id="download_options" style="height: 0;">
 		<div>
 			<?php echo $this->Html->link(
-				$this->Html->image('document-excel-table.png').' Excel 2007',
+				$this->Html->image('document-excel-table.png').' <span>Excel 2007</span>',
 				array(
 					'controller' => 'pages', 
 					'action' => 'spreadsheet', 
@@ -63,11 +63,12 @@
 				),
 				array(
 					'escape' => false, 
-					'title' => 'Download Excel 2007 spreadsheet'
+					'title' => 'Download Excel 2007 spreadsheet',
+					'class' => 'with_icon'
 				)
 			); ?>
 			<?php echo $this->Html->link(
-				$this->Html->image('document-excel-table.png').' Excel 5.0',
+				$this->Html->image('document-excel-table.png').' <span>Excel 5.0</span>',
 				array(
 					'controller' => 'pages', 
 					'action' => 'spreadsheet', 
@@ -75,11 +76,12 @@
 				),
 				array(
 					'escape' => false, 
-					'title' => 'Download Excel 5.0 spreadsheet'
+					'title' => 'Download Excel 5.0 spreadsheet',
+					'class' => 'with_icon'
 				)
 			); ?>
 			<?php echo $this->Html->link(
-				$this->Html->image('document-excel-csv.png').' CSV',
+				$this->Html->image('document-excel-csv.png').' <span>CSV</span>',
 				array(
 					'controller' => 'pages', 
 					'action' => 'spreadsheet', 
@@ -87,7 +89,8 @@
 				),
 				array(
 					'escape' => false, 
-					'title' => 'Download CSV (comma-separated values) spreadsheet'
+					'title' => 'Download CSV (comma-separated values) spreadsheet',
+					'class' => 'with_icon'
 				)
 			); ?>
 		</div>
