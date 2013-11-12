@@ -27,31 +27,69 @@
 	</div>
 	<?php echo $this->Html->link(
 		$this->Html->image('printer.png').' <span>Print</span>',
-		array('controller' => 'pages', 'action' => 'print_output', '?' => $input_query),
-		array('escape' => false, 'title' => 'Print', 'id' => 'print_output_link', 'target' => '_blank', 'class' => 'with_icon')
+		array(
+			'controller' => 'pages', 
+			'action' => 'print_output', 
+			'?' => $input_query
+		),
+		array(
+			'escape' => false, 
+			'title' => 'Print', 
+			'id' => 'print_output_link', 
+			'target' => '_blank', 
+			'class' => 'with_icon'
+		)
 	); ?>
 	<br />
 	<?php echo $this->Html->link(
 		$this->Html->image('document-excel-table.png').' <span>Download</span>',
-		array('url' => '#'),
-		array('escape' => false, 'title' => 'Download spreadsheet', 'id' => 'show_download_options', 'class' => 'with_icon')
+		array(
+			'url' => '#'
+		),
+		array(
+			'escape' => false, 
+			'title' => 'Download spreadsheet', 
+			'id' => 'show_download_options', 
+			'class' => 'with_icon'
+		)
 	); ?>
 	<div id="download_options" style="height: 0;">
 		<div>
 			<?php echo $this->Html->link(
 				$this->Html->image('document-excel-table.png').' Excel 2007',
-				array('controller' => 'pages', 'action' => 'spreadsheet', '?' => $input_query.'&type=excel2007'),
-				array('escape' => false, 'title' => 'Download Excel 2007 spreadsheet')
+				array(
+					'controller' => 'pages', 
+					'action' => 'spreadsheet', 
+					'?' => $input_query.'&type=excel2007'
+				),
+				array(
+					'escape' => false, 
+					'title' => 'Download Excel 2007 spreadsheet'
+				)
 			); ?>
 			<?php echo $this->Html->link(
 				$this->Html->image('document-excel-table.png').' Excel 5.0',
-				array('controller' => 'pages', 'action' => 'spreadsheet', '?' => $input_query.'&type=excel5'),
-				array('escape' => false, 'title' => 'Download Excel 5.0 spreadsheet')
+				array(
+					'controller' => 'pages', 
+					'action' => 'spreadsheet', 
+					'?' => $input_query.'&type=excel5'
+				),
+				array(
+					'escape' => false, 
+					'title' => 'Download Excel 5.0 spreadsheet'
+				)
 			); ?>
 			<?php echo $this->Html->link(
 				$this->Html->image('document-excel-csv.png').' CSV',
-				array('controller' => 'pages', 'action' => 'spreadsheet', '?' => $input_query.'&type=csv'),
-				array('escape' => false, 'title' => 'Download CSV (comma-separated values) spreadsheet')
+				array(
+					'controller' => 'pages', 
+					'action' => 'spreadsheet', 
+					'?' => $input_query.'&type=csv'
+				),
+				array(
+					'escape' => false, 
+					'title' => 'Download CSV (comma-separated values) spreadsheet'
+				)
 			); ?>
 		</div>
 	</div>
