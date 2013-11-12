@@ -12,7 +12,7 @@
 		'http://www.in.gov/dor/4439.htm' => 'Individual Income Tax Forms 2010'
 	)
 ); ?>
-<div id="sources" style="height: 0;">
+<div id="sources">
 	<div>
 		<ul>
 			<?php foreach ($sources as $category => $c_sources): ?>
