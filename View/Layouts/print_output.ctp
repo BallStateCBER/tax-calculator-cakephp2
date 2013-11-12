@@ -6,11 +6,6 @@
 			<?php echo Configure::read('data_center_subsite_title'); ?>
 		</title>
 		<link rel="stylesheet" type="text/css" href="/css/main.css" />
-		<link rel="icon" type="image/png" href="/img/chart.png" />
-		<?php
-			echo $scripts_for_layout;
-			echo $html->charset('utf-8');
-		?>
 	</head>
 	<body class="print">
 		<?php echo $content_for_layout ?>
