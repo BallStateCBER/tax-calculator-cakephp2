@@ -8,13 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="/css/main.css" />
 		<link rel="icon" type="image/png" href="/img/chart.png" />
 		<?php
-			/*
-			echo $this->Html->script(array(
-				'https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js',
-				'http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js',
-				'/js/main.js'
-			));
-			*/
 			echo $scripts_for_layout;
 			echo $html->charset('utf-8');
 		?>
