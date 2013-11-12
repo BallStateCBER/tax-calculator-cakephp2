@@ -178,6 +178,10 @@ function setupOutput() {
 	$('#calc_input_home_value_after').change(function (event) {
 		forceMoneyFormat('calc_input_home_value_after');
 	});
+	$('#recalculate_button').click(function (event) {
+		event.preventDefault();
+		$('#recalculate_form').submit();
+	});
 	$('#recalculate_form').submit(function (event) {
 		recalculate(event);
 	});
