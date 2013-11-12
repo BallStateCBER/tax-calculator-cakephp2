@@ -3,8 +3,8 @@
 	<?php echo $this->Html->image(
 		'/data_center/img/loading_small.gif',
 		array(
-			'alt' => 'Loading',
-			'title' => 'Loading',
+			'alt' => 'Loading...',
+			'title' => 'Loading...',
 			'style' => 'display: none;',
 			'id' => 'calc_loading'
 		)
@@ -20,7 +20,6 @@
 			),
 			array(
 				'escape' => false, 
-				'title' => 'How was this calculated?', 
 				'id' => 'toggle_formulas'
 			)
 		); ?>
@@ -35,7 +34,6 @@
 			),
 			array(
 				'escape' => false, 
-				'title' => 'Data sources', 
 				'id' => 'toggle_sources'
 			)
 		); ?>
@@ -50,7 +48,6 @@
 			),
 			array(
 				'escape' => false, 
-				'title' => 'Footnotes', 
 				'id' => 'toggle_footnotes'
 			)
 		); ?>
