@@ -1,4 +1,4 @@
-<div id="formulas_used" style="height: 0;">
+<div id="formulas_used">
 	<div>
 		<div>
 			<table class="calc_output">
