@@ -79,6 +79,7 @@ class PagesController extends AppController {
 	public function output() {
 		$this->loadModel('Calculator');
 		$this->set('title_for_layout', '');
+		$this->layout = 'ajax';
 
 		// Get output
 		$output = $this->Calculator->calculate($this->data);
