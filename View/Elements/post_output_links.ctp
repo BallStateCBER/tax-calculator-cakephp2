@@ -52,7 +52,7 @@
 			'class' => 'with_icon'
 		)
 	); ?>
-	<div id="download_options" style="height: 0;">
+	<div id="download_options" style="display: none;">
 		<div>
 			<?php echo $this->Html->link(
 				$this->Html->image('document-excel-table.png').' <span>Excel 2007</span>',
@@ -67,6 +67,7 @@
 					'class' => 'with_icon'
 				)
 			); ?>
+			<br />
 			<?php echo $this->Html->link(
 				$this->Html->image('document-excel-table.png').' <span>Excel 5.0</span>',
 				array(
@@ -80,6 +81,7 @@
 					'class' => 'with_icon'
 				)
 			); ?>
+			<br />
 			<?php echo $this->Html->link(
 				$this->Html->image('document-excel-csv.png').' <span>CSV</span>',
 				array(
