@@ -38,6 +38,15 @@
 		); ?>
 	</h2>
 	<?php echo $this->element('footnotes'); ?>
+	
+	<h2>
+		<?php echo $this->Html->link(
+			'Additional Resources',
+			array('url' => '#'),
+			array('escape' => false, 'id' => 'toggle_resources')
+		); ?>
+	</h2>
+	<?php echo $this->element('resources'); ?>
 </div>
 
 <?php $this->Js->buffer("setupOutput();"); ?>
