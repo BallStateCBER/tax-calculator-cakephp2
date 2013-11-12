@@ -34,7 +34,6 @@
 		),
 		array(
 			'escape' => false, 
-			'title' => 'Print', 
 			'id' => 'print_output_link', 
 			'target' => '_blank', 
 			'class' => 'with_icon'
