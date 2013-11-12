@@ -1,14 +1,19 @@
 <div id="post_output_links">
 	<div class="display_mode">
 		<div class="display">
-			<a href="#" id="toggle_edit">
+			<a href="#" id="toggle_edit" class="with_icon">
 				<img src="/img/calculator.png" />
-				Edit
+				<span>
+					Edit
+				</span>
 			</a>
 		</div>
 		<div class="input">
-			<button id="recalculate_button" class="fake_link" type="submit">
-				<img src="/img/calculator--arrow.png" alt="Recalculate" /> Recalculate
+			<a href="#" id="recalculate_button" class="with_icon">
+				<img src="/img/calculator--arrow.png" />
+				<span>
+					Recalculate
+				</span>
 				<?php echo $this->Html->image(
 					'/data_center/img/loading_small.gif',
 					array(
@@ -17,19 +22,19 @@
 						'id' => 'recalc_loading'
 					)
 				); ?>
-			</button>
+			</a>
 		</div>
 	</div>
 	<?php echo $this->Html->link(
-		$this->Html->image('printer.png').' Print',
+		$this->Html->image('printer.png').' <span>Print</span>',
 		array('controller' => 'pages', 'action' => 'print_output', '?' => $input_query),
-		array('escape' => false, 'title' => 'Print', 'id' => 'print_output_link', 'target' => '_blank')
+		array('escape' => false, 'title' => 'Print', 'id' => 'print_output_link', 'target' => '_blank', 'class' => 'with_icon')
 	); ?>
 	<br />
 	<?php echo $this->Html->link(
-		$this->Html->image('document-excel-table.png').' Download',
+		$this->Html->image('document-excel-table.png').' <span>Download</span>',
 		array('url' => '#'),
-		array('escape' => false, 'title' => 'Download spreadsheet', 'id' => 'show_download_options')
+		array('escape' => false, 'title' => 'Download spreadsheet', 'id' => 'show_download_options', 'class' => 'with_icon')
 	); ?>
 	<div id="download_options" style="height: 0;">
 		<div>
