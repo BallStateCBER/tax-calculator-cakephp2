@@ -55,7 +55,15 @@ a.back_to_top {
 	vertical-align: middle;
 }
 #calc_output_container {
+	text-align: center;
 	
+	> div {
+		display: inline-block;
+		text-align: left;
+		&#additional_info {
+			display: block;
+		}
+	}
 }
 .calc_output {
 	border-bottom: 1px solid #000;
