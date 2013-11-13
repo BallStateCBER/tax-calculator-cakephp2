@@ -188,7 +188,7 @@ class PagesController extends AppController {
 
 			$this->set(compact('rows'));
 			$this->layout = isset($_GET['debug']) ? 'ajax' : 'spreadsheets/csv';
-			return $this->render('/spreadsheets/csv');
+			return $this->render('/Spreadsheets/csv');
 		} else {
 			$this->__setExcelData($vars_for_spreadsheet);
 			$this->set(array(
@@ -197,7 +197,7 @@ class PagesController extends AppController {
 				'objPHPExcel' => $this->objPHPExcel
 			));
 			$this->layout = isset($_GET['debug']) ? 'ajax' : "spreadsheets/$spreadsheet_type";
-			return $this->render('/spreadsheets/excel');
+			return $this->render('/Spreadsheets/excel');
 		}
 	}
 
