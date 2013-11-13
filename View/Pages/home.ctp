@@ -56,22 +56,4 @@
 	</div>
 </div>
 
-<?php $this->Js->buffer("
-	$('#calc_input_income').change(function(event) {
-		forceMoneyFormat('calc_input_income');
-	});
-	$('#calc_input_home_value_before').change(function(event) {
-		forceMoneyFormat('calc_input_home_value_before');
-		var after_field = $('#calc_input_home_value_after');
-		if (after_field.val() == '') {
-			after_field.val($('#calc_input_home_value_before').val());
-		}
-	});
-	$('#calc_input_home_value_after').change(function(event) {
-		forceMoneyFormat('calc_input_home_value_after');
-	});
-	$('#initial_input_form').submit(function (event) {
-		event.preventDefault();
-		calculate(event);
-	});
-"); ?>
+<?php $this->Js->buffer("setup_input();"); ?>
