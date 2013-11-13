@@ -1,5 +1,5 @@
 <div id="calc_output_container">
-	<div class="box">
+	<div>
 		<?php echo $this->Form->create(false, array('id' => 'initial_input_form')); ?>
 
 		<?php echo $this->Form->input('from_county', array(
