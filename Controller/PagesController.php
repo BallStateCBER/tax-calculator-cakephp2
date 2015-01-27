@@ -187,7 +187,14 @@ class PagesController extends AppController {
 			);
 
 			$this->set(compact('rows'));
-			$this->layout = isset($_GET['debug']) ? 'ajax' : 'spreadsheets/csv';
+			if (isset($_GET['debug'])) {
+				$this->layout = 'ajax';
+			} else {
+				$this->layout = 'spreadsheets/csv';
+				$this->response->type(array('csv' => 'text/csv'));
+				$this->response->type('csv');
+				$this->response->download("$title.csv");
+			}
 			return $this->render('/Spreadsheets/csv');
 		} else {
 			$this->__setExcelData($vars_for_spreadsheet);
@@ -196,7 +203,20 @@ class PagesController extends AppController {
 				//'values' => $this->ExcelReport->values,
 				'objPHPExcel' => $this->objPHPExcel
 			));
-			$this->layout = isset($_GET['debug']) ? 'ajax' : "spreadsheets/$spreadsheet_type";
+			if (isset($_GET['debug'])) {
+				$this->layout = 'ajax';
+			} else {
+				$this->layout = "spreadsheets/$spreadsheet_type";
+				if ($spreadsheet_type == 'excel5') {
+					$this->response->type(array('excel5' => 'application/vnd.ms-excel'));
+					$this->response->type('excel5');
+					$this->response->download("$title.xls");
+				} else {
+					$this->response->type(array('excel2007' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'));
+					$this->response->type('excel2007');
+					$this->response->download("$title.xlsx");
+				}
+			}
 			return $this->render('/Spreadsheets/excel');
 		}
 	}
