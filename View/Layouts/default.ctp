@@ -1,7 +1,9 @@
 <?php
 	$this->extend('DataCenter.default');
 	$this->Html->script('script', array('inline' => false));
-	echo $this->element('flash_messages', array(), array('plugin' => 'DataCenter'));
+    $this->start('flash_messages');
+	    echo $this->element('flash_messages', array(), array('plugin' => 'DataCenter'));
+    $this->end();
 ?>
 
 <?php $this->start('subsite_title'); ?>
